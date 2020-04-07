@@ -16,12 +16,9 @@ jobs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: |
       **\\*TimeBasedSlicing*.dll
-      **\*FlakyTest*.dll
-      **\UnitTestProjectForAssemblySlicing*.dll
-	  !**\\obj\\**
-	  testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicingProject)'
+      **\\*FlakyTest*.dll
+      **\\*UnitTestProjectForAssemblySlicing*.dll
+	    testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicingProject)'
       distributionBatchType: 'basedOnAssembly'
       searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
       vsTestVersion: 'toolsInstaller'
-
-
