@@ -14,11 +14,12 @@ jobs:
   - task: VSTest@2
     inputs:
       testSelector: 'testAssemblies'
-      testAssemblyVer2: |
-      **\\*TimeBasedSlicing*.dll
-      **\\*FlakyTest*.dll
-      **\\*UnitTestProjectForAssemblySlicing*.dll
-	    testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicingProject)'
-      distributionBatchType: 'basedOnAssembly'
-      searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
-      vsTestVersion: 'toolsInstaller'
+       testAssemblyVer2: |
+        **\*TimeBasedSlicing*.dll
+        **\*FlakyTest*.dll
+        **\*UnitTestProjectForAssemblySlicing.dll
+        !**\obj\**
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+      testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicingProject)'
+      vsTestVersion: 'toolsInstaller''
+
