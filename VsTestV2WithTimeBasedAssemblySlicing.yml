@@ -15,9 +15,9 @@ jobs:
     inputs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: |
-        **\*TimeBasedSlicing*.dll 
-        **\*FlakyTest*.dll 
+        **\*TimeBasedSlicing*.dll      
         **\*UnitTestProjectForAssemblySlicing.dll 
+        **\*FlakyTest*.dll 
         !**\obj\**
       searchFolder: '$(System.DefaultWorkingDirectory)'
       testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicing)'
