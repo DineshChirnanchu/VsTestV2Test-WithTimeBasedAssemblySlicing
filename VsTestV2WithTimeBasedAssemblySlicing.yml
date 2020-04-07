@@ -20,7 +20,7 @@ jobs:
         **\*UnitTestProjectForAssemblySlicing.dll 
         !**\obj\**
       searchFolder: '$(System.DefaultWorkingDirectory)'
-      testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicingProject)'
+      testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicing)'
       distributionBatchType: 'basedOnAssembly'
       vsTestVersion: 'toolsInstaller'
 
