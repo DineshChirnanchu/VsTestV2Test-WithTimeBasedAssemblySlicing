@@ -1,0 +1,27 @@
+# The objective is to perform VSTESTV2 With TimeBasedAssemblySlicing
+
+trigger:
+- master
+jobs:
+- job: RunTest1
+  displayName: 'Run Tests'
+  pool: Din_pool
+  steps:              
+  - task: VisualStudioTestPlatformInstaller@1
+    displayName: 'Visual Studio Test Platform Installer'
+    inputs:
+      versionSelector: 'latestPreRelease'  
+  - task: VSTest@2
+    inputs:
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: |
+      **\\*TimeBasedSlicing*.dll
+      **\*FlakyTest*.dll
+      **\UnitTestProjectForAssemblySlicing*.dll
+	  !**\\obj\\**
+	  testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicingProject)'
+      distributionBatchType: 'basedOnAssembly'
+      searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
+      vsTestVersion: 'toolsInstaller'
+
+
