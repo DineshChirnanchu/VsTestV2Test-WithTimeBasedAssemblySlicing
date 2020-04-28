@@ -4,18 +4,18 @@ jobs:
 - job: RunTest1
   displayName: 'Run Tests'
   pool: Default
-  steps:              
+  steps:
   - task: VisualStudioTestPlatformInstaller@1
     displayName: 'Visual Studio Test Platform Installer'
     inputs:
-      versionSelector: 'latestPreRelease'  
+      versionSelector: 'latestPreRelease'
   - task: VSTest@2
     inputs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: |
-        **\*TimeBasedSlicing*.dll      
-        **\*UnitTestProjectForAssemblySlicing.dll 
-        **\*FlakyTest*.dll 
+        **\*TimeBasedSlicing*.dll
+        **\*UnitTestProjectForAssemblySlicing.dll
+        **\*FlakyTest*.dll
         !**\obj\**
       searchFolder: '$(System.DefaultWorkingDirectory)'
       testFiltercriteria: 'Name=PassingTest|Name=TestMethod5|(FullyQualifiedName~TimeBasedSlicing)'
